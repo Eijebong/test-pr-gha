@@ -1,5 +1,6 @@
 name: Autoupdate
-on: [push]
+on:
+  [push]
 jobs:
   pre-commit:
     name: Pre-commit
@@ -21,7 +22,7 @@ jobs:
           git checkout -B pre-commit-update
           pre-commit autoupdate -j4
           git add .pre-commit-config.yaml
-          git commit -am "Update pre-commit"
+          git commit -m "$(cat .pre-commit-config.yaml | yq -r '.ci.autoupdate_commit_msg // "Update pre-commit config"')"
           git push -f origin pre-commit-update
       - name: Create PR if necessary
         run: |
