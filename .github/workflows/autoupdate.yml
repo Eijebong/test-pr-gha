@@ -17,10 +17,10 @@ jobs:
       - name: Update files
         run: |
           git checkout -B pre-commit-update
-          #pre-commit autoupdate -j4
-          #git add foo
-          #git commit -am "WIP"
-          #git push -f origin pre-commit-update
+          pre-commit autoupdate -j4
+          git add .pre-commit-config.yaml
+          git commit -am "Update pre-commit"
+          git push -f origin pre-commit-update
       - name: Create PR if necessary
         run: |
           curl -L \
