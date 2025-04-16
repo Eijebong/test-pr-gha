@@ -10,3 +10,5 @@ jobs:
       pull-requests: write
     steps:
       - uses: Eijebong/gha-releng-test/pre-commit-autoupdate@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
