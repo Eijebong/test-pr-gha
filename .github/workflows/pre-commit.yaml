@@ -1,0 +1,9 @@
+name: Pre-commit
+on:
+  [push]
+jobs:
+  pre-commit:
+    name: Pre-commit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Eijebong/gha-releng-test/pre-commit@main
