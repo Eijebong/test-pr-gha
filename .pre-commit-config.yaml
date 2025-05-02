@@ -29,15 +29,6 @@ repos:
     hooks:
       - id: yamllint
         exclude: template
-  - repo: https://github.com/codespell-project/codespell
-    rev: v2.4.1
-    hooks:
-      - id: codespell
-        entry: codespell -I .codespell-ignore-words.txt
-        exclude: >
-            (?x)^(
-                test/test_util_path.py
-            )$
   - repo: https://github.com/compilerla/conventional-pre-commit
     rev: v4.0.0
     hooks:
@@ -48,4 +39,3 @@ exclude: |
     src/taskgraph/run-task/|
     taskcluster/scripts/external_tools
   )
-
