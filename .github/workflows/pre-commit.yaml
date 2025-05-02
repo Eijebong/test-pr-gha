@@ -7,7 +7,9 @@ on:
 
 jobs:
   pre-commit:
-    if: (github.event.review.state == 'approved' && github.event.pull_request.head.ref == 'pre-commit-update') || github.event.pull_request.head.ref != 'pre-commit-update'
+    # Run the workflow on approval for auto updates only and on push on every other PR
+    if: (github.event.review.state == 'approved' && github.event.pull_request.head.ref == 'pre-commit-update') ||
+        (github.event.type != 'pull_request_review' && github.event.pull_request.head.ref != 'pre-commit-update')
     name: Pre-commit
     runs-on: ubuntu-latest
     steps:
