@@ -7,6 +7,7 @@ on:
 
 jobs:
   pre-commit:
+    if: (github.event.review.state == 'approved' && github.event.pull_request.head.ref == 'pre-commit-update') || github.event.pull_request.head.ref != 'pre-commit-update'
     name: Pre-commit
     runs-on: ubuntu-latest
     steps:
