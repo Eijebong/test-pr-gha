@@ -1,6 +1,10 @@
 name: Pre-commit
 on:
-  [push, pull_request]
+  push:
+  pull_request:
+  pull_request_review:
+    types: [submitted]
+
 jobs:
   pre-commit:
     name: Pre-commit
